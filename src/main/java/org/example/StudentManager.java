@@ -36,6 +36,12 @@ public class StudentManager {
         // refer to mainMenu() for an example)
         // Add the student to the list
 
+        System.out.println("Enter the student's name to add: ");
+
+        String studentName = scanner.nextLine();
+
+        students.add(studentName);
+
         mainMenu();
     }
 
@@ -44,12 +50,31 @@ public class StudentManager {
         // Use the contains method to check if the student entered is in the list
         // If so, remove it, if not, print "Student not found."
 
+        System.out.println("Enter the student's name to remove: ");
+
+        String studentName = scanner.nextLine();
+
+        if (students.contains(studentName)) {
+            students.remove(studentName);
+        } else {
+            System.out.println("Student not found.");
+        }
+
         mainMenu();
     }
 
     public void viewStudents() {
         // Loop through the list of students and print each one
         // (Use a for-each loop!)
+
+        System.out.println("Student list:");
+
+        int i = 1;
+
+        for (String studentName : students) {
+            System.out.println(i + ". " + studentName);
+            i++;
+        }
         mainMenu();
     }
 }
